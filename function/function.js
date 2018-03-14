@@ -1,0 +1,6 @@
+
+class Function {
+    static convertCSVToJSON () {
+
+    }
+}

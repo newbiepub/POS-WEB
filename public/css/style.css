@@ -1,0 +1,20 @@
+.uploader {
+    margin: 20px 0;
+    background-color: #e5e5e5;
+    width: auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.uploader:hover {
+    background-color: #999;
+    cursor: pointer;
+}
