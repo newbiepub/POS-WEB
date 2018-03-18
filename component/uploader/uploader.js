@@ -28,19 +28,24 @@ class Uploader extends React.Component {
     /**
      * Send Product Data to Inventory
      */
-    sendProductDataToServer(productData) {
+    sendProductDataToServer(fromProfile, productData) {
         try {
-            let _csrf = this.props.url.query.csrfToken;
-
+            let { url: {query}, user, authToken } = this.props;
+            let _csrf = query.csrfToken;
             $.ajax({
-                url: "/inventory/import",
+                url: `http://localhost:3000/web/api/company/inventory/import/csv`,
                 method: "POST",
                 headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
+                    'Access-Control-Allow-Origin': '*',
+                    'x-authentication': authToken,
+                    'x-csrf-token': _csrf,
+                    'Content-Type': 'application/json'
                 },
-                dataType: "json",
-                data: JSON.stringify({data: productData.data, _csrf}),
+                data: JSON.stringify({
+                    fromProfile,
+                    productData
+                }),
+                dataType: 'json',
                 error(xhr, statusCode, errorMessage) {
                     console.log("CODE STATUS: ", statusCode);
                 },
@@ -69,7 +74,7 @@ class Uploader extends React.Component {
             let productData = XLSX.utils.sheet_to_json(workbook.Sheets.Sheet1); // Convert Workbook sheet to json
 
             try {
-                console.log("PRODUCT DATA - ", productData);
+                this.productData = productData;
                 this.setState({productData}); // Save product data to showing in tables
                 //await this.sendProductDataToServer(productData);
             } catch (e) {

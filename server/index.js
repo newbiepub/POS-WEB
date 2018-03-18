@@ -13,7 +13,6 @@ import url from 'url';
 import next from 'next';
 import faker from "faker";
 import account from "./account/index";
-import inventory from "./inventory/index";
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
@@ -31,8 +30,8 @@ app.prepare().then(() => {
     });
 
     // Body parser
-    server.use(bodyParser.urlencoded({extended: false}));
-    server.use(bodyParser.json());
+    server.use(bodyParser.urlencoded({extended: false, limit: '5mb'}));
+    server.use(bodyParser.json({limit: '5mb'}));
 
     // Enable Cookie
     server.use(cookieParser());
@@ -75,7 +74,7 @@ app.prepare().then(() => {
     });
 
     //Serve static
-    server.use('/static', express.static(path.join(__dirname, '../', 'public')));
+    server.use('/static', express.static(path.join(__dirname, '../', 'static')));
 
     /**
      * Router
@@ -89,7 +88,6 @@ app.prepare().then(() => {
         }
         next();
     });
-    server.use('/inventory', inventory);
     // Route Handler
     server.get("*", (req, res, next) => {
         return app.render(req, res, req.url, {csrfToken: req.csrfToken()});

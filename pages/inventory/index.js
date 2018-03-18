@@ -96,7 +96,8 @@ class Index extends React.Component {
         // Check If Server-Side-Rendering
         if (!!req) {
             return {
-                user: (req.session || {}).user || null
+                user: (req.session || {}).user || null,
+                authToken: (req.session || {}).authToken || null
             }
         }
         return {};
@@ -135,10 +136,7 @@ class Index extends React.Component {
         if(!Object.keys(productData).length) {
             return alert("Xin mời tải lên file sản phẩm");
         }
-
-        console.log("FROM PROFILE - ", fromProfile.getProfile());
-        console.log("PRODUCT DATA - ", productData);
-        productUploader.sendProductDataToServer(productData); // Send Data To Server
+        productUploader.sendProductDataToServer(fromProfile.getProfile(), productData); // Send Data To Server
     }
 
     render() {

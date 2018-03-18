@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:server": "babel server -s -D -d dist",
-    "build": "npm run build:server && next build",
-    "start": "babel-node server/index.js",
+    "build": "cross-env NODE_ENV=production && webpack -p --progress && next build",
+    "start": "cross-env NODE_ENV=production && node dist/bundle.js",
     "production": "export NODE_ENV=production && node dist/index.js",
-    "dev": "nodemon --exec babel-node server/index.js"
+    "dev": "babel-node server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,15 +17,21 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0"
+    "babel-register": "^6.26.0",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9",
+    "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
+    "cross-env": "^5.1.4",
     "csurf": "^1.9.0",
     "express": "^4.16.2",
     "express-minify": "^1.0.0",
