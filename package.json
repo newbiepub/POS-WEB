@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:server": "babel server -s -D -d dist",
+    "build:server": "cross-env NODE_ENV=production && webpack -p --progress",
     "build": "cross-env NODE_ENV=production && webpack -p --progress && next build",
     "start": "cross-env NODE_ENV=production && node dist/bundle.js",
     "production": "export NODE_ENV=production && node dist/index.js",
@@ -33,6 +33,7 @@
     "cookie-parser": "^1.4.3",
     "cross-env": "^5.1.4",
     "csurf": "^1.9.0",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "express-minify": "^1.0.0",
     "express-session": "^1.15.6",

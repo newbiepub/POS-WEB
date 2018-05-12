@@ -6,6 +6,7 @@ import Uploader from "../../component/uploader/uploader";
 import isEqual from "lodash/isEqual";
 import LoadingOverlay from "../../component/loadingOverlay/loadingOverlay";
 import lodash from "lodash";
+import Helpers from "../../function/function";
 
 
 /**
@@ -136,6 +137,17 @@ class Index extends React.Component {
         if(!Object.keys(productData).length) {
             return alert("Xin mời tải lên file sản phẩm");
         }
+
+
+        for(let index = 0; index  < productData.length; index++) {
+            // Convert price to number type
+            let importPrice = productData[index]['GIÁ NHẬP (*)'] || 0;
+            let salePrice = productData[index]['GIÁ BÁN (*)'] || 0;
+
+            productData[index]['GIÁ NHẬP (*)'] = Helpers.convertPriceToNumber(importPrice);
+            productData[index]['GIÁ BÁN (*)'] = Helpers.convertPriceToNumber(salePrice);
+        }
+
         productUploader.sendProductDataToServer(fromProfile.getProfile(), productData); // Send Data To Server
     }
 

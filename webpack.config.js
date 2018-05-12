@@ -28,7 +28,8 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
                 'PORT': JSON.stringify(process.env.PORT),
-                'API_URL': JSON.stringify(process.env.API_URL)
+                'API_URL': JSON.stringify('https://posappapi.herokuapp.com'),
+                'DOMAIN_NAME': JSON.stringify('poswebmanagement.herokuapp.com')
             }
         }),
         new UglifyJSPlugin({

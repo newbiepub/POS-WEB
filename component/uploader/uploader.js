@@ -33,7 +33,7 @@ class Uploader extends React.Component {
             let { url: {query}, user, authToken } = this.props;
             let _csrf = query.csrfToken;
             $.ajax({
-                url: `http://localhost:3000/web/api/company/inventory/import/csv`,
+                url: `${API.API_URL}/web/api/company/inventory/import/csv`,
                 method: "POST",
                 headers: {
                     'Access-Control-Allow-Origin': '*',

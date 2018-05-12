@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
@@ -12,7 +14,7 @@ import MemoryStore from 'memorystore';
 import url from 'url';
 import next from 'next';
 import faker from "faker";
-import account from "./account/index";
+import account from './account';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
@@ -22,7 +24,6 @@ app.prepare().then(() => {
     // Express
     let  server = express();
 
-    server.set('trust proxy', '127.0.0.1'); // trust first proxy
     //Query string
     server.use((req, res, next) => {
         req.query = url.parse(req.url, true);
@@ -60,12 +61,13 @@ app.prepare().then(() => {
     };
 
     // Set session for production
-    if(!dev) {
-        Object.assign(sess.cookie, {
-            secure: true,
-            httpOnly: true
-        })
-    }
+    // if(!dev) {
+    //     server.set('trust proxy', 1); // trust first proxy
+    //     Object.assign(sess.cookie, {
+    //         secure: true,
+    //         httpOnly: true
+    //     })
+    // }
     server.use(session(sess), (req, res, next) => {
         if(!!req.session.user && !!req.session.authToken) {
 
