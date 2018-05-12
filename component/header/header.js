@@ -13,16 +13,16 @@ class Header extends React.Component {
         return (
             <nav style={{backgroundColor: "#444", padding: "0 15px"}}>
                 <div className="nav-wrapper">
-                    <a href="/" className="brand-logo">POS</a>
+                    <a href="/" className="brand-logo" style={{fontFamily: 'Lobster',}}>Point of Sale</a>
                     <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
                     {
                         user === null ?
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><a className="modal-trigger" href="#loginModal">ĐĂNG NHẬP</a></li>
+                            <li><a className="modal-trigger" style={{fontFamily: 'Shrikhand', fontSize: "1em"}} href="#loginModal" >ĐĂNG NHẬP</a></li>
                         </ul>
                             :
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li><a href="/inventory">NHẬP KHO</a></li>
+                                <li><a href="/inventory" style={{fontFamily: "Abril Fatface"}}>NHẬP KHO</a></li>
                                 <li><a href="#">{user.profile.name || "No Email"}</a></li>
                             </ul>
                     }

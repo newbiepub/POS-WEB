@@ -38,8 +38,8 @@ class FormProfile extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <form className="col s12">
+            <div className="row" style={{display: "flex",}}>
+                <form className="col s8">
                     <div className="row">
                         <div className="input-field col s12">
                             <input
@@ -80,6 +80,20 @@ class FormProfile extends React.Component {
                         </div>
                     </div>
                 </form>
+                {/*Hướng dẫn cách tải dự liệu vào server*/}
+                <div className="col s4 m6">
+                    <div className="card blue-grey darken-1">
+                        <div className="card-content white-text">
+                            <span className="card-title">Hướng dẫn nhập dữ liệu vào kho</span>
+                            <p>Bước 1: Nhập dữ liệu từ nhà cung cấp</p>
+                            <p>Bước 2: Tải file nhập liệu mẫu</p>
+                            <p>Bước 3: Nhập dữ liệu vào file mẫu</p>
+                        </div>
+                        <div className="card-action">
+                            <a href="#">File mẫu</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -158,7 +172,7 @@ class Index extends React.Component {
                     <div className="section">
                         <h5>HÀNG ĐƯỢC NHẬP TỪ</h5>
                         <div className="divider"/>
-                        <div className="container">
+                        <div className="">
                             <FormProfile ref="fromProfile"/>
                         </div>
                     </div>

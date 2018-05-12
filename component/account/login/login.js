@@ -10,7 +10,7 @@ class LoginModal extends React.Component {
     renderHeader() {
         return (
             <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
-                <h4>ĐĂNG NHẬP</h4>
+                <h4 style={{fontFamily: 'Shrikhand'}}>ĐĂNG NHẬP</h4>
             </div>
         )
     }

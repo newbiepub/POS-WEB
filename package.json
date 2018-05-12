@@ -23,8 +23,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "uglifyjs-webpack-plugin": "^1.2.2",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
@@ -46,6 +44,8 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "styled-jsx": "^2.2.4"
+    "styled-jsx": "^2.2.4",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3"
   }
 }

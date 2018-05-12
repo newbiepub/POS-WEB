@@ -21,7 +21,7 @@ class Index extends React.Component {
                 <div style={{
                     marginRight: '30px', marginLeft: "30px",
                     display: "flex", justifyContent: "center", alignItems: 'center', marginTop: "100px"}}>
-                    <h2 style={{fontSize: "2em"}}>HỆ THỐNG QUẢN LÝ POS</h2>
+                    <h2 style={{fontSize: "3.5em", fontFamily: 'Lobster',}}>Hệ Thống Quản Lý Point of Sale(POS)</h2>
                 </div>
             </Layout>
         )
