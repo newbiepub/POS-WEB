@@ -75,8 +75,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/inventory/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="80" column="26" lean-forward="true" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+            <state relative-caret-position="258">
+              <caret line="82" column="59" lean-forward="true" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#1585#1943#0" expanded="false" />
@@ -441,7 +441,7 @@
       <workItem from="1521304917381" duration="1363000" />
       <workItem from="1521340225967" duration="11844000" />
       <workItem from="1526129275563" duration="8348000" />
-      <workItem from="1526139089411" duration="901000" />
+      <workItem from="1526139089411" duration="992000" />
     </task>
     <task id="LOCAL-00001" summary="Update gitignore">
       <created>1521050206442</created>
@@ -464,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526139354249</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="change style css">
+      <created>1526140990643</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1526140990643</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104321000" />
+    <option name="totallyTimeSpent" value="104412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -812,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/inventory/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="80" column="26" lean-forward="true" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+        <state relative-caret-position="258">
+          <caret line="82" column="59" lean-forward="true" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#1585#1943#0" expanded="false" />
