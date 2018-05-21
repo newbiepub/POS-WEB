@@ -17,11 +17,6 @@ class Index extends React.Component {
     render() {
         return (
             <Layout {...this.props}>
-                {/*<div style={{
-                    marginRight: '30px', marginLeft: "30px",
-                    display: "flex", justifyContent: "center", alignItems: 'center', marginTop: "100px"}}>
-                    <h2 style={{fontSize: "3.5em", fontFamily: 'Roboto',}}>Hệ Thống Quản Lý Các Điểm Bán Hàng VinMart - iMart</h2>
-                </div>*/}
 
                 <div id="index-banner" className="parallax-container">
                     <div className="section no-pad-bot">

@@ -35,8 +35,9 @@ class Header extends React.Component {
                         </ul>
                             :
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li><a href="/inventory" style={{fontFamily: "Roboto"}}>NHẬP KHO</a></li>
-                                <li><a href="#">{user.profile.name || "No Email"}</a></li>
+                                <li><a href="/inventory" style={{fontFamily: "Roboto", color:'#444'}}>NHẬP KHO</a></li>
+                                <li><a href="#" style={{color:'#444'}}>{user.profile.name || "No Email"}</a></li>
+                                <li><a href={'/account/logout'} className="waves-effect waves-light btn">Đăng Xuất</a></li>
                             </ul>
                     }
                     {

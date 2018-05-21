@@ -76,4 +76,14 @@ account.post("/login", async (req, res, next) => {
     }
 });
 
+account.get('/logout', (req, res, next) => {
+   try {
+       req.session.authToken = undefined;
+       req.session.user = undefined;
+       res.redirect('/');
+   }  catch (e) {
+       res.status(500).json({error: {message: e.message}});
+   }
+});
+
 export default account;

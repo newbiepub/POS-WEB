@@ -7,6 +7,7 @@ import isEqual from "lodash/isEqual";
 import LoadingOverlay from "../../component/loadingOverlay/loadingOverlay";
 import lodash from "lodash";
 import Helpers from "../../function/function";
+import Router from 'next/router';
 
 
 /**
@@ -90,7 +91,7 @@ class FormProfile extends React.Component {
                             <p>Bước 3: Nhập dữ liệu vào file mẫu</p>
                         </div>
                         <div className="card-action">
-                            <a href="#">File mẫu</a>
+                            <a href="/static/File_Hang_Mau.xlsx">File mẫu</a>
                         </div>
                     </div>
                 </div>
@@ -103,7 +104,8 @@ class Index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            productData: []
+            productData: [],
+            onSubmit: false
         }
     }
 
@@ -116,10 +118,6 @@ class Index extends React.Component {
             }
         }
         return {};
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        return !lodash.isEqual(this.state.productData, nextState.productData);
     }
 
     /**
@@ -152,7 +150,7 @@ class Index extends React.Component {
             return alert("Xin mời tải lên file sản phẩm");
         }
 
-
+        this.setState({onSubmit: true});
         for(let index = 0; index  < productData.length; index++) {
             // Convert price to number type
             let importPrice = productData[index]['GIÁ NHẬP (*)'] || 0;
@@ -162,7 +160,15 @@ class Index extends React.Component {
             productData[index]['GIÁ BÁN (*)'] = Helpers.convertPriceToNumber(salePrice);
         }
 
-        productUploader.sendProductDataToServer(fromProfile.getProfile(), productData); // Send Data To Server
+        try {
+            await productUploader.sendProductDataToServer(fromProfile.getProfile(), productData); // Send Data To Server
+            confirm('NHẬP KHO THÀNH CÔNG');
+            Router.back();
+        } catch (e) {
+            console.log(e);
+            alert('ĐÃ CÓ LỖI XẢY RA');
+        }
+        this.setState({onSubmit: false});
     }
 
     render() {
@@ -186,10 +192,30 @@ class Index extends React.Component {
                     <div className="divider"/>
                     <div className="container" style={{margin: "20px 0"}}>
                         <button
+                            disabled={this.state.onSubmit}
                             onClick={this.onSubmitImport.bind(this)}
                             className="btn waves-effect waves-light" type="button">
-                            Nhập Hàng
-                            <i className="material-icons right">send</i>
+                            {
+                                this.state.onSubmit ?
+                                    <div className="preloader-wrapper small active">
+                                        <div className="spinner-layer spinner-green-only">
+                                            <div className="circle-clipper left">
+                                                <div className="circle"></div>
+                                            </div>
+                                            <div className="gap-patch">
+                                                <div className="circle"></div>
+                                            </div>
+                                            <div className="circle-clipper right">
+                                                <div className="circle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <React.Fragment>
+                                        Nhập Hàng
+                                        <i className="material-icons right">send</i>
+                                    </React.Fragment>
+                            }
                         </button>
                     </div>
                 </div>

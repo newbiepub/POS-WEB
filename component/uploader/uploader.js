@@ -29,33 +29,37 @@ class Uploader extends React.Component {
      * Send Product Data to Inventory
      */
     sendProductDataToServer(fromProfile, productData) {
-        try {
-            let { url: {query}, user, authToken } = this.props;
-            let _csrf = query.csrfToken;
-            $.ajax({
-                url: `${API.API_URL}/web/api/company/inventory/import/csv`,
-                method: "POST",
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'x-authentication': authToken,
-                    'x-csrf-token': _csrf,
-                    'Content-Type': 'application/json'
-                },
-                data: JSON.stringify({
-                    fromProfile,
-                    productData
-                }),
-                dataType: 'json',
-                error(xhr, statusCode, errorMessage) {
-                    console.log("CODE STATUS: ", statusCode);
-                },
-                success(data, textStatus, xhr) {
-                    console.log("TEXT STATUS - ", textStatus);
-                }
-            })
-        } catch (e) {
-            alert(e.message)
-        }
+        return new Promise((resolve, reject) => {
+            try {
+                let { url: {query}, user, authToken } = this.props;
+                let _csrf = query.csrfToken;
+                $.ajax({
+                    url: `${API.API_URL}/web/api/company/inventory/import/csv`,
+                    method: "POST",
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'x-authentication': authToken,
+                        'x-csrf-token': _csrf,
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify({
+                        fromProfile,
+                        productData
+                    }),
+                    dataType: 'json',
+                    error(xhr, statusCode, errorMessage) {
+                        console.log('message - ', errorMessage);
+                        console.log('status code - ', statusCode);
+                        reject(statusCode);
+                    },
+                    success(data, textStatus, xhr) {
+                        resolve(textStatus);
+                    }
+                })
+            } catch (e) {
+                alert(e.message)
+            }
+        })
     }
 
     /**
@@ -108,16 +112,6 @@ class Uploader extends React.Component {
                     <div className="file-path-wrapper">
                         <input disabled={true} className="file-path" type="text"/>
                     </div>
-                </div>
-                {/*Radio Button*/}
-                <div className="radio">
-                    <input id="radio-1" name="radio" type="radio" checked/>
-                        <label htmlFor="radio-1" className="radio-label">Checked</label>
-                </div>
-
-                <div className="radio">
-                    <input id="radio-2" name="radio" type="radio"/>
-                        <label  htmlFor="radio-2" className="radio-label">Unchecked</label>
                 </div>
                 {
                     this.state.productData.length > 0 &&
