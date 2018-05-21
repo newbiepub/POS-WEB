@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../component/layout/layout";
 import Router from 'next/router';
-
 class Index extends React.Component {
     constructor(props) {
         super(props);

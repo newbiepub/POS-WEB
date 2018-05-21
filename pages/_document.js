@@ -20,6 +20,7 @@ export default class AppDocument extends Document {
                     <script src="/static/js/materialize.js" type="text/javascript"></script>
                     <script type="text/javascript" src="/static/js/csvParser.js"></script>
                     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/xlsx/0.12.3/xlsx.full.min.js"></script>
+                    <script src={'/static/js/main.js'}></script>
                     <Main/>
                     <NextScript/>
                 </body>
