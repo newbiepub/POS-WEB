@@ -18,3 +18,107 @@
     background-color: #999;
     cursor: pointer;
 }
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+nav .brand-logo{
+    font-size: 3.5rem;
+}
+p {
+    line-height: 2rem;
+    font-size: 13pt;
+}
+.teal-text.text-lighten-2{
+    font-size: 4.5rem !important;
+}
+.title{
+    text-transform: uppercase;
+}
+.sidenav-trigger {
+    color: #26a69a;
+}
+.contact-us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.avatar{
+    width: 150px;
+    height: 150px;
+    border: 7px solid gainsboro;
+    border-radius: 50%;
+}
+.parallax-container {
+    min-height: 600px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+    display: flex;
+    align-items: center;
+}
+.parallax-container .section {
+    width: 100%;
+}
+.info-contact{
+    font-size: 12pt;
+    text-align: left;
+}
+.copyright{
+    display: flex;
+}
+.contact-link{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.text-lighten-4{
+    font-size: 11pt;
+}
+.logo-shop{
+    display: flex;
+    justify-content: center;
+}
+.footer-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-logo > img{
+    width: 25%;
+}
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: 70pt;
+    color: #7bb529;
+}
+
+footer.page-footer {
+    margin: 0;
+}
